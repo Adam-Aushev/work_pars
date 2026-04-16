@@ -2,4 +2,4 @@ venv
 source
 info_base.json
 .env
-
+work_pars.service

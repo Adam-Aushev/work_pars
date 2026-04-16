@@ -6,17 +6,23 @@ import time
 import unicodedata
 from dotenv import load_dotenv
 from vk_bot import send_msg
+import subprocess
 
 
-
-
+def do_command(comand):
+    all_info = ''
+    process = subprocess.Popen(comand, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True, universal_newlines=True)
+    for line in process.stdout:
+        all_info += line
+    return str(all_info)
 
 
 
 
 def get_telechanel(channel, source_dir):
     scrape_line = f'snscrape --max-results 10 --jsonl telegram-channel {channel} > {source_dir}/{channel}.txt'
-    os.system(scrape_line)
+    send_msg(f'comand ---- {do_command(scrape_line)}')
+    # os.system(scrape_line)
     print(channel, '- update list')
     info_list = []
     with open(f'{source_dir}/{channel}.txt', 'r', encoding='utf-8') as channel_file:

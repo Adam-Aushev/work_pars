@@ -34,7 +34,6 @@ def get_telechanel(channel, source_dir):
 
 if __name__ == "__main__":
     while True:
-        time.sleep(3600)
         dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
         load_dotenv(dotenv_path)
         key = os.getenv('vkey')
@@ -75,3 +74,5 @@ if __name__ == "__main__":
                 print(each_post)
 
                 send_msg(f'{each_post["url"]} {each_post["content"]}')
+        
+        time.sleep(3600)

@@ -34,9 +34,8 @@ def get_telechanel(channel, source_dir):
 
 if __name__ == "__main__":
     while True:
+        send_msg('we_start')
         dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
-        load_dotenv(dotenv_path)
-        key = os.getenv('vkey')
         channels = ['jobforjunior', 'pythonrabota', 'forpython', 'job_python',
                 'runello_rus_python', 'devs_it', 'geekjobs']
         # channels = ['jobforjunior', 'pythonrabota']

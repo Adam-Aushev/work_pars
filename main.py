@@ -1,15 +1,9 @@
 from urllib.parse import unquote
 import json
 import os 
-import textwrap
-import re
-import requests
 from bs4 import BeautifulSoup
-import random
 import time 
 import unicodedata
-import csv
-import sys
 from dotenv import load_dotenv
 from vk_bot import send_msg
 
@@ -67,6 +61,7 @@ if __name__ == "__main__":
     remote = ['remote', 'удален', 'удалённ']
     specific = ['python', 'ffmpeg', 'okko', 'kion', 'kinopoisk', 'intern', 'стаж']
     redflags = ['senior', 'серьер', 'middle', 'мидл']
+    time_pause = 3600
     for each_post in new_posts:
         remote_verifi = any([True for each in remote if each in each_post['content'].lower()]) 
         specific_verifi = any([True for each in specific if each in each_post['content'].lower()]) 
@@ -77,5 +72,5 @@ if __name__ == "__main__":
         # print(remote_verifi, specific_verifi, redflags_verifi)
         if all([remote_verifi, specific_verifi, redflags_verifi]):
             print(each_post)
-            send_msg(f'{each_post["url"]} {each_post["content"]}')
 
+            send_msg(f'{each_post["url"]} {each_post["content"]}')

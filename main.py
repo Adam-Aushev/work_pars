@@ -41,7 +41,7 @@ if __name__ == "__main__":
                 'runello_rus_python', 'devs_it', 'geekjobs']
         # channels = ['jobforjunior', 'pythonrabota']
         channels_list = []
-        source_dir = 'source'
+        source_dir = os.path.join(os.path.dirname(__file__), 'source')
         os.mkdir(source_dir) if not os.path.isdir(source_dir) else 1
         for each in channels:
             channels_list += (get_telechanel(each, source_dir))

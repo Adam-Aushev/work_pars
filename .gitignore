@@ -1,4 +1,5 @@
 venv
 source
 info_base.json
-env
+.env
+

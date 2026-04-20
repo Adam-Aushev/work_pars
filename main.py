@@ -21,7 +21,7 @@ def do_command(comand):
 
 def get_telechanel(channel, source_dir):
     scrape_line = f'snscrape --max-results 10 --jsonl telegram-channel {channel} > {source_dir}/{channel}.txt'
-    # os.system(scrape_line)
+    os.system(scrape_line)
     print(channel, '- update list')
     info_list = []
     with open(f'{source_dir}/{channel}.txt', 'r', encoding='utf-8') as channel_file:
@@ -41,7 +41,8 @@ if __name__ == "__main__":
     while True:
         dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
         channels = ['jobforjunior', 'pythonrabota', 'forpython', 'job_python',
-                'runello_rus_python', 'devs_it', 'geekjobs']
+                'runello_rus_python', 'devs_it', 'geekjobs', 'job_pythonz',
+                'fordev']
         # channels = ['jobforjunior', 'pythonrabota']
         channels_list = []
         source_dir = os.path.join(os.path.dirname(__file__), 'source')

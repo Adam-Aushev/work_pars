@@ -11,7 +11,7 @@ def rutor(keywords):
     args = 'search/0/0/000/2/'
     url = f'{host}{args}{quote(keywords)}'
     info = []
-    soup = save_site(url, test=True)
+    soup = save_site(url, headers=headers)
     soup = soup.find(id='index')
     soup = soup.find('table')  # type: ignore
     film_line = soup.find_all(True, {'class':['gai', 'tum']}) # type: ignore
@@ -37,7 +37,7 @@ def kinozal(words):
     params = '&g=0&c=0&v=0&d=0&w=0&t=1&f=0'
     keywords = quote(words, encoding='Windows‑1251')
     url = f'{host}{keywords}{params}'
-    soup = save_site(url, test=True)
+    soup = save_site(url)
     films = soup.find(class_='t_peer')
     if films != None:
         films = films.find_all(class_='bg')
@@ -62,7 +62,6 @@ def kinozal_each(link):
     file_link = file_link.find('a').get('href') # type: ignore
     file_link = f'https://kinozal.tv/{file_link}'
     print(link)
-    input(file_link)
     save_file(file_link, # type: ignore
                headers=headers,
                cookies=cookies,

@@ -20,7 +20,7 @@ def rutor(keywords):
         for each in film_line:
             dict_info = {}
             each_info = each.find('td').next.next # type: ignore
-            dict_info['link'] = f'https:{each_info.find(class_='downgif').get('href')}'# type: ignore
+            dict_info['link'] = f"https:{each_info.find(class_='downgif').get('href')}" #type: ignore
             each_info = each_info.find(class_='downgif').next.next.next.next.next # type: ignore
             dict_info['text'] = each_info.text # type: ignore
             dict_info['size'] = unicodedata.normalize('NFKC', each.find_all(align='right')[-1].text)

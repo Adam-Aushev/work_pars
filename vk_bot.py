@@ -49,6 +49,6 @@ for event in longpoll.listen():
                     write_msg('найдено 0', event.user_id) # type: ignore
             elif request.isdigit() and tor_list:
                 write_msg('Файл сохранен!', event.user_id) # type: ignore
-                save_file(tor_list[int(request)]['link'], source='./torrent/', file_type='.torrent')
+                save_file(tor_list[int(request)]['link'], source='../torrent/', file_type='.torrent')
             else:
                 write_msg("Не поняла вашего ответа...", event.user_id) # type: ignore

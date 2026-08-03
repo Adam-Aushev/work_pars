@@ -1,8 +1,6 @@
 import os
 import subprocess
 from time import sleep
-from vk_bot import write_msg
-
 
 def get_cmd(code):
     line_list = []
@@ -32,5 +30,4 @@ if __name__ == "__main__":
                 with open('tor_list.txt', 'w', encoding='utf-8') as write_tor:
                     write_tor.write(f'{each}\n')
         print(tfiles_list)
-        write_msg('torrent is download')
         sleep(5)

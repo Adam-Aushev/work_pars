@@ -12,12 +12,12 @@ def get_cmd(code):
 def dow_tor(path):
     get_file = f"scp   server1:./torrent/{path}  ./torrent/"
     os.system(get_file)
+    print(get_file)
     tor_dow = f'transmission-cli torrent/{path} -w "Загрузки/"'
     os.system(tor_dow)
 
 if __name__ == "__main__":
     while True:
-        sleep(5)
         get_file = f"ssh   server1  'ls ./torrent/'"
         tfiles_list = get_cmd(get_file)
         with open('tor_list.txt', 'r', encoding='utf-8') as tor_list:
@@ -30,3 +30,4 @@ if __name__ == "__main__":
                 with open('tor_list.txt', 'w', encoding='utf-8') as write_tor:
                     write_tor.write(f'{each}\n')
         print(tfiles_list)
+        sleep(5)

@@ -2,7 +2,6 @@ from dotenv import load_dotenv
 import os
 import vk_api
 from vk_api.longpoll import VkLongPoll, VkEventType
-import pandas
 from torrent import kinozal, kinozal_each, rutor
 from save_site import save_file
 

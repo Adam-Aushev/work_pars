@@ -5,14 +5,14 @@ from bs4 import BeautifulSoup
 import time 
 import unicodedata
 from dotenv import load_dotenv
-from vk_bot import send_msg
+from vk_bot import write_msg
 import subprocess
-
+import vk_api
 
 def do_command(comand):
     all_info = ''
     process = subprocess.Popen(comand, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True, universal_newlines=True)
-    for line in process.stdout:
+    for line in process.stdout: # type: ignore
         all_info += line
     return str(all_info)
 
@@ -77,6 +77,6 @@ if __name__ == "__main__":
             if all([remote_verifi, specific_verifi, redflags_verifi]):
                 print(each_post)
 
-                send_msg(f'{each_post["url"]} {each_post["content"]}')
+                write_msg(f'{each_post["url"]} {each_post["content"]}')
         
         time.sleep(3600)

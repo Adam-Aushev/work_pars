@@ -25,9 +25,9 @@ if __name__ == "__main__":
         for each in tfiles_list:
             if each not in tor_list:
                 print(each, tor_list)
-                print('start download')
-                dow_tor(each.strip())
                 with open('tor_list.txt', 'w', encoding='utf-8') as write_tor:
                     write_tor.write(f'{each}\n')
+                print('start download')
+                dow_tor(each.strip())
         print(tfiles_list)
         sleep(5)

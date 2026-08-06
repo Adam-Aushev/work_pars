@@ -4,10 +4,24 @@ import vk_api
 from vk_api.longpoll import VkLongPoll, VkEventType
 from torrent import kinozal, kinozal_each, rutor
 from save_site import save_file
+import time 
+
 
 load_dotenv()
 token = os.getenv('token')
 chat_id = 145869859
+
+
+class MyVkLongPoll(VkLongPoll):
+    def listen(self):
+        while True:
+            try:
+                for event in self.check():
+                    yield event
+            except Exception as e:
+                print('error', e)
+                time.sleep(10)
+
 
 def write_msg(message, user_id=chat_id):
     vk.method('messages.send', {'user_id': user_id, 'message': message, 'random_id':0})

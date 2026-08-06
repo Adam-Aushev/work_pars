@@ -4,3 +4,6 @@ info_base.json
 .env
 work_pars.service
 test.py
+__pycache__
+torrent
+download

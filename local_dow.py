@@ -13,7 +13,7 @@ def dow_tor(path):
     get_file = f"scp   server1:./torrent/{path}  ./torrent/"
     os.system(get_file)
     print(get_file)
-    tor_dow = f'transmission-cli torrent/{path} -w "Загрузки/"'
+    tor_dow = f'transmission-cli torrent/{path} -w "downloads"'
     os.system(tor_dow)
 
 if __name__ == "__main__":
